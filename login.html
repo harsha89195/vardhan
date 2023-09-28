@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Food Recipe Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('food1.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    
+        .navbar {
+            background-color: #6809852c;
+            overflow: hidden;
+        }
+    
+        .navbar a {
+            float: right;
+            display: block;
+            color: rgba(248, 0, 116, 0.824);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+    
+        .container {
+            background-color: rgba(217, 22, 168, 0.212);
+            border-radius: 10px;
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        h2 {
+            background: linear-gradient(to right, rgba(26, 25, 29, 0.856) 0%, rgba(225, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 61%), linear-gradient(rgb(97, 183, 217) 52%, rgb(224, 246, 255) 60%, rgb(78, 99, 132) 61%);
+            animation: backgrounds 4s infinite;
+            color: #4407d4d6; 
+            font-family: 'Verdana', sans-serif;
+            font-weight: 500;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    
+        .form-group {
+            margin-bottom: 20px;
+        }
+    
+        label {
+            font-size: 16px;
+            color: #0f0f0f;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+    
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 2px solid #c0075a;
+            background-color: rgba(14, 212, 34, 0.2);
+            font-size: 16px;
+            color: #100202;
+            transition: border-bottom 0.3s ease-in-out;
+        }
+    
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-bottom: 2px solid #5ade0e; 
+        }
+    
+        button[type="submit"] {
+            background-color: #111011ce;
+            color: #dc3614f3;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+    
+        button[type="submit"]:hover {
+            background-color: #43ab0c; 
+        }
+    
+        .terms {
+            font-size: 12px;
+            color: #0b0c0cf6;
+            text-align: left;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="navbar">
+        <a href="signup.html">Sign Up</a>
+        <a href="home.html">Home</a>
+    </div>
+    <div class="container">
+        <h2>Welcome back to, food receipe!</h2>
+        <form id="loginForm" method="post" action="your-login-endpoint.php" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="loginSubmit">Log In</button>
+            </div>
+        </form>
+        <p class="terms">
+            Don't have an account yet? <a href="signup.html">Sign up here</a>.
+        </p>
+        <p class="condition">
+             <a href="home.html">Go to dashboard</a>
+
+        </p>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            var usernameRegex = /^[a-zA-Z0-9_]+$/;
+
+            if (username === "" || !username.match(usernameRegex)) {
+                alert("Please enter a valid username containing only letters, numbers, and underscores.");
+                return false; 
+            }
+
+            var minPasswordLength = 8;
+
+            if (password === "" || password.length < minPasswordLength) {
+                alert("Please enter a password with a minimum length of " + minPasswordLength + " characters.");
+                return false; 
+            }
+
+            return true; 
+        }
+    </script>
+</body>
+</html>
