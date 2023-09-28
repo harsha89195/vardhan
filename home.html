@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recipe Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <style>
+        
+        body {
+            font-family: 'YourCustomFont', Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-image: url('chef.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: #1313138e; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+    
+        .navigation {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .navigation a {
+            color: #8fc61fb5;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navigation a:hover {
+            color: #81baf6;
+        }
+
+        
+        .search-bar {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .search-bar input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+        .logout a {
+            background-color: #fff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 18px;
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .logout a:hover {
+            background-color: #0056b3;
+        }
+        .food-recipe {
+            background-image: url(food-recipe.png);
+            
+            margin-top: 20px;
+            padding: 50px;
+            border-radius: 10px;
+            width: 50%;
+            
+        }
+            
+
+
+        .food-recipe h2 {
+            font-size: 24px;
+            color: #100f0ff8;
+        }
+
+        .food-recipe p {
+            font-size: 16px;
+            color: #1c17c2;
+        }
+
+        .food-recipe img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Welcome to the Food Recipe Dashboard!</h1>
+        <div class="logout">
+            <a href="#">Logout</a>
+        </div>
+    </header>
+    <nav class="navigation">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#" id="showFoodRecipe">Food Recipes</a>
+    </nav>
+    <main class="dashboard-main">
+        
+    </main>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for food recipe...">
+        <button type="button" id="searchButton">Search Recipe</button>
+    </div>
+    <div class="food-recipe" id="foodRecipe">
+        <h2>Welcome to Delicious Food Recipes</h2>
+        <img src="food-recipe.png" alt="chicken">
+        <p>Chicken is a versatile and delicious protein source. It can be prepared in various ways, such as grilled, roasted, or fried. Enjoy a tasty chicken dish with your favorite seasonings and sides!</p>
+        
+    </div>
+    <div class="container">
+        <h1>Recipe Info</h1>
+        <a href="login.html" class="logout-button">Login</a>
+        <a href="signup.html" class="logout-button">Signup</a>
+    </div>
+    <script>
+        
+        const searchButton = document.getElementById('searchButton');
+        const foodRecipe = document.getElementById('foodRecipe');
+        const searchInput = document.getElementById('searchInput');
+
+        searchButton.addEventListener('click', () => {
+            const foodName = searchInput.value;
+
+            
+            const sampleRecipe = {
+                image: 'food-image.jpg', 
+                description: 'Your Recipe Description Goes Here', 
+            };
+
+        
+            foodRecipe.innerHTML = `
+                <h2>Welcome to Delicious Food Recipes</h2>
+                <img src="${sampleRecipe.image}" alt="Food Recipe Image">
+                <p>Recipe Description: ${sampleRecipe.description}</p>
+            `;
+
+        
+            foodRecipe.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
